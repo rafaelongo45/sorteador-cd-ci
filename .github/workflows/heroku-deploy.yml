@@ -1,7 +1,7 @@
 name: Heroku deploy
 
 on:
-  push:
+  merge:
     branch:
       - main
 
