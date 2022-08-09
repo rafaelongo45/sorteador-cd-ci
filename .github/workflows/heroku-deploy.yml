@@ -1,7 +1,7 @@
 name: Heroku deploy
 
 on:
-  merge:
+  push:
     branch:
       - main
 
@@ -17,3 +17,4 @@ jobs:
           heroku_app_name: ${{secrets.HEROKU_APP_NAME}}
           heroku_email: ${{secrets.HEROKU_EMAIL}}
           branch: "main"
+          
