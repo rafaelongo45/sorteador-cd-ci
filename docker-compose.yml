@@ -1,0 +1,24 @@
+services:
+  pg_db:
+    image: postgres
+    container_name: pg_db
+    restart: always
+    ports:
+      - 4215:5432
+    env_file:
+      .env
+    volumes:
+      - pg_db:/var/lib/postgresql/data
+
+  node_app:
+    container_name: node_app
+    build: .
+    ports:
+      - 5000:5000
+    depends_on:
+      - pg_db
+    env_file:
+      - .env
+
+volumes:
+  pg_db:
